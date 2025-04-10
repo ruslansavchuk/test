@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: orders-env1
+  namespace: argocd
+spec:
+  destination:
+    name: ""
+    namespace: env1
+    server: "https://kubernetes.default.svc"
+  source:
+    path: envs/env1/orders
+    repoURL: "https://github.com/ruslansavchuk/test.git"
+    targetRevision: main
+  sources: []
+  project: env1
+  syncPolicy:
+    automated: null
+    syncOptions:
+      - CreateNamespace=true
