@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: gateway-env1
-  namespace: argocd
 spec:
   destination:
     name: ""
@@ -13,7 +12,7 @@ spec:
     repoURL: "https://github.com/ruslansavchuk/test.git"
     targetRevision: main
   sources: []
-  project: env1
+  project: gateway
   syncPolicy:
     automated: null
     syncOptions:

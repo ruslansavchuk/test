@@ -2,18 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: gateway-env2
-  namespace: argocd
 spec:
   destination:
     name: ""
     namespace: env2
-    server: "https://kubernetes.default.svc"
+    server: "https://172.25.0.3:6443"
   source:
     path: envs/env2/gateway
     repoURL: "https://github.com/ruslansavchuk/test.git"
     targetRevision: main
   sources: []
-  project: env2
+  project: gateway
   syncPolicy:
     automated: null
     syncOptions:
